@@ -40,7 +40,7 @@ keys.map(key => {
 
 app
   .use(logger())
-  .use(views(path.join('./views'), {map: {html: 'nunjucks'}}))
+  .use(views(path.join('./views'), { map: { html: 'nunjucks' } }))
   .use(koabody({}))
   .use(appModule.router.middleware())
   .use(bodyParser())
