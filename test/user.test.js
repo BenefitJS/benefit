@@ -20,7 +20,7 @@ describe('POST /users!!!', () => {
   it('response post /users success!!', () => {
     request(server)
       .post('/v1/users')
-      .send({phone: '13322224444', password: 'hahaha.js'})
+      .send({ phone: '13322224444', password: 'hahaha.js' })
       .set('Accept', 'application/json')
       .expect(200)
       .then(res => {
@@ -31,22 +31,22 @@ describe('POST /users!!!', () => {
   it('requires property "password"', function () {
     request(server)
       .post('/v1/users')
-      .send({phone: '13322221111'})
+      .send({ phone: '13322221111' })
       .set('Accept', 'application/json')
       .expect(422)
       .then(response => {
-        should(response.error.text).match('requires property "password"')
+        should(response.body).be.Object
       })
   })
 
   it('requires property "phone"', function () {
     request(server)
       .post('/v1/users')
-      .send({password: 'hahahahhaha'})
+      .send({ password: 'hahahahhaha' })
       .set('Accept', 'application/json')
       .expect(422)
       .then(response => {
-        should(response.error.text).match('requires property "phone"')
+        should(response.body).be.Object
       })
   })
 })
@@ -67,7 +67,7 @@ describe('UPDATE /users/:id!!!', () => {
   it('response success!!', () => {
     request(server)
       .put('/v1/users/1')
-      .send({password: 'asdxzas123'})
+      .send({ password: 'asdxzas123' })
       .set('Accept', 'application/json')
       .expect(200)
       .then(res => {
