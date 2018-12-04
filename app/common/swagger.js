@@ -6,9 +6,6 @@ const dir = require('dir_filenames')
 
 const generateSwagger = (info) => {
   const items = dir(`${appRoot}/app/models`)
-  _.remove(items, (n) => {
-    return n === `${appRoot}/app/models/index.js`
-  })
   let methods = []
   let components = {}
   components.schemas = {}
@@ -125,7 +122,7 @@ const generateSwagger = (info) => {
               'description': 'response success',
               'content': {
                 'application/json': {
-                  'schema': {$ref: `#/components/schemas/${schemaName}`}
+                  'schema': { $ref: `#/components/schemas/${schemaName}` }
                 }
               }
             }
