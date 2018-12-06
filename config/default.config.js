@@ -1,4 +1,5 @@
 module.exports = {
+  secret: 'benefit',
   mysql: {
     host: '106.15.230.136',
     user: 'lvyang',
