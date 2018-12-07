@@ -3,11 +3,11 @@ const _ = require('lodash')
 
 const props = {
   id: Joi.number().integer().description('id'),
-  phone: Joi.string().description('手机号'),
-  password: Joi.string().description('密码')
+  phone: Joi.string().description('phone'),
+  password: Joi.string().description('password')
 }
 
-const schema = Joi.object().keys(props).description('用户信息表')
+const schema = Joi.object().keys(props).description('user info')
 
 module.exports = {
   schema,
@@ -15,11 +15,11 @@ module.exports = {
     path: '/users',
     method: 'get',
     tags: ['users'],
-    summary: '获取用户列表',
+    summary: 'get user list',
     query: _.pick(props, ['phone']),
     output: {
       200: Joi.object().keys({
-        result: Joi.array().items(props).description('返回列表查询')
+        result: Joi.array().items(props).description('result')
       })
     }
   },
@@ -27,30 +27,30 @@ module.exports = {
     path: '/users',
     method: 'post',
     tags: ['users'],
-    summary: '创建用户',
+    summary: 'create user',
     requestBody: {
       body: _.pick(props, ['phone', 'password']),
       required: ['phone', 'password']
     },
     output: {
-      200: Joi.object().keys(props).description('返回结果')
+      200: Joi.object().keys(props).description('result')
     }
   },
   show: {
     path: '/users/:id',
     method: 'get',
     tags: ['users'],
-    summary: '获取用户详情',
+    summary: 'get user info',
     params: _.pick(props, ['id']),
     output: {
-      200: Joi.object().keys(props).description('返回结果')
+      200: Joi.object().keys(props).description('result')
     }
   },
   update: {
     path: '/users/{id}',
     method: 'put',
     tags: ['users'],
-    summary: '更新用户信息',
+    summary: 'update user',
     params: _.pick(props, ['id']),
     requestBody: {
       body: _.pick(props, ['phone'])
@@ -60,7 +60,7 @@ module.exports = {
     path: '/users/:id',
     method: 'delete',
     tags: ['users'],
-    summary: '删除用户详情',
+    summary: 'destroy user',
     params: _.pick(props, ['id'])
   }
 }

@@ -29,5 +29,4 @@ class UserController extends BaseController {
   }
 }
 
-const user = new UserController()
-module.exports = user
+module.exports = new UserController()

@@ -1,5 +1,8 @@
-class UserService {
+const BaseService = require('../common/base_service')
+
+class UserService extends BaseService {
   async index (params) {
+    this.ctx.throw(400, 'Hello World')
     // console.log('-------->', params)
     return 'Hello'
   }
@@ -21,5 +24,4 @@ class UserService {
   }
 }
 
-const user = new UserService()
-module.exports = user
+module.exports = new UserService()
