@@ -1,6 +1,9 @@
 class BaseService {
-  constructor () {
-    this.ctx = require('../../server').context
+  error (status, message) {
+    const err = new Error()
+    err.status = status
+    err.message = message
+    throw err
   }
 }
 
