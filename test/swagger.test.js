@@ -1,5 +1,5 @@
 const request = require('supertest')
-const should = require('should')
+require('should')
 const server = require('./index')
 const describe = require('mocha').describe
 const it = require('mocha').it
@@ -21,11 +21,11 @@ describe('GET /swagger.json!!!', function () {
 
 describe('test swagger', () => {
   it('swagger.json mast be an Object!!', () => {
-    should(swagger).be.an.Object()
+    swagger.should.be.an.Object()
   })
 
   it('swagger.json have property openapi!!', () => {
-    should(swagger).have.property('openapi', '3.0.0')
+    swagger.should.have.property('openapi', '3.0.0')
   })
 })
 
@@ -36,7 +36,9 @@ describe('GET /apidoc!!!', function () {
       .set('Accept', 'text/html')
       .expect(200)
       .then(response => {
-        should(response.body).be.html
+        const res = response.body
+        res.should.be.Object()
+        response.text.should.be.String()
       })
   })
 })

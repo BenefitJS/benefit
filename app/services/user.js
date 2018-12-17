@@ -3,7 +3,6 @@ const BaseService = require('../common/base_service')
 class UserService extends BaseService {
   async index (params) {
     // console.log('-------->', params)
-    this.error(400, 'Hello World')
     return 'Hello'
   }
   async create (params) {

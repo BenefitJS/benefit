@@ -1,5 +1,5 @@
 const request = require('supertest')
-const should = require('should')
+require('should')
 const server = require('./index')
 const describe = require('mocha').describe
 const it = require('mocha').it
@@ -11,7 +11,8 @@ describe('GET /users!!!', () => {
       .set('Accept', 'application/json')
       .expect(200)
       .then(res => {
-        should(res.body).be.String
+        res.text.should.be.String()
+        res.body.should.be.Object()
       })
   })
 })
@@ -24,7 +25,8 @@ describe('POST /users!!!', () => {
       .set('Accept', 'application/json')
       .expect(200)
       .then(res => {
-        should(res.body).be.String
+        res.text.should.be.String()
+        res.body.should.be.Object()
       })
   })
 
@@ -35,7 +37,7 @@ describe('POST /users!!!', () => {
       .set('Accept', 'application/json')
       .expect(422)
       .then(response => {
-        should(response.body).be.Object
+        response.body.should.be.Object()
       })
   })
 
@@ -46,7 +48,7 @@ describe('POST /users!!!', () => {
       .set('Accept', 'application/json')
       .expect(422)
       .then(response => {
-        should(response.body).be.Object
+        response.body.should.be.Object()
       })
   })
 })
@@ -58,7 +60,8 @@ describe('GET /users/:id!!!', () => {
       .set('Accept', 'application/json')
       .expect(200)
       .then(res => {
-        should(res.body).be.String
+        res.text.should.be.String()
+        res.body.should.be.Object()
       })
   })
 })
@@ -71,7 +74,8 @@ describe('UPDATE /users/:id!!!', () => {
       .set('Accept', 'application/json')
       .expect(200)
       .then(res => {
-        should(res.body).be.String
+        res.text.should.be.String()
+        res.body.should.be.Object()
       })
   })
 })
@@ -83,7 +87,8 @@ describe('DELETE /users/:id!!!', () => {
       .set('Accept', 'application/json')
       .expect(200)
       .then(res => {
-        should(res.body).be.String
+        res.text.should.be.String()
+        res.body.should.be.Object()
       })
   })
 })
