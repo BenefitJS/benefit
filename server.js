@@ -12,7 +12,12 @@ const appModule = require('./app')
 const { model, service } = require('./extends/context')
 
 const app = new Koa()
-
+Object.defineProperty(app.context, 'model', {
+  get: () => { return model }
+})
+Object.defineProperty(app.context, 'service', {
+  get: () => { return service }
+})
 const keys = Object.keys(appModule.context)
 keys.map(key => {
   Object.defineProperty(app.context, key, appModule.context[key])
@@ -27,8 +32,6 @@ app.use(async (ctx, next) => {
   ctx.set('Access-Control-Max-Age', 86400000)
   ctx.set('Access-Control-Allow-Methods', 'OPTIONS, GET, PUT, POST, DELETE')
   ctx.set('Access-Control-Allow-Headers', 'x-requested-with, accept, origin, content-type')
-  ctx.service = service
-  ctx.model = model
   try {
     await next()
   } catch (err) {
