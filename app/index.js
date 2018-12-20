@@ -10,16 +10,6 @@ const files = [
     path: `${appRoot}/app/routes/index.js`
   },
   {
-    name: 'service',
-    path: `${appRoot}/app/common/helper.js`,
-    module: 'service'
-  },
-  {
-    name: 'model',
-    path: `${appRoot}/app/common/helper.js`,
-    module: 'model'
-  },
-  {
     name: 'controller',
     path: `${appRoot}/app/common/helper.js`,
     module: 'controller'

@@ -9,6 +9,7 @@ const views = require('koa-views')
 const path = require('path')
 const config = require('./config')
 const appModule = require('./app')
+const { model, service } = require('./extends/context')
 
 const app = new Koa()
 
@@ -26,8 +27,8 @@ app.use(async (ctx, next) => {
   ctx.set('Access-Control-Max-Age', 86400000)
   ctx.set('Access-Control-Allow-Methods', 'OPTIONS, GET, PUT, POST, DELETE')
   ctx.set('Access-Control-Allow-Headers', 'x-requested-with, accept, origin, content-type')
-  ctx.service = appModule.service
-  ctx.model = appModule.model
+  ctx.service = service
+  ctx.model = model
   try {
     await next()
   } catch (err) {
