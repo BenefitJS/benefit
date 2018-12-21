@@ -9,15 +9,15 @@ const views = require('koa-views')
 const path = require('path')
 const config = require('./config')
 const appModule = require('./app')
-const { model, service } = require('./extends/context')
+const helper = require('./extends/context')
 
 const app = new Koa()
-Object.defineProperty(app.context, 'model', {
-  get: () => { return model }
+
+const ctxkeys = Object.keys(helper)
+ctxkeys.map(key => {
+  Object.defineProperty(app.context, key, helper[key])
 })
-Object.defineProperty(app.context, 'service', {
-  get: () => { return service }
-})
+
 const keys = Object.keys(appModule.context)
 keys.map(key => {
   Object.defineProperty(app.context, key, appModule.context[key])
