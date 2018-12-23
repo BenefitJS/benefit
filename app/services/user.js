@@ -23,4 +23,4 @@ class UserService extends BaseService {
   }
 }
 
-module.exports = new UserService()
+module.exports = UserService

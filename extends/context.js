@@ -18,7 +18,7 @@ const helper = {
       const service = {}
       services.map(file => {
         let name = file.split('/').pop().replace(/\.\w+$/, '')
-        service[name] = require(file)
+        service[name] = require(file).prototype
       })
       return service
     }
