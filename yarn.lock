@@ -2074,9 +2074,10 @@ istanbul-reports@^2.0.1:
   dependencies:
     handlebars "^4.0.11"
 
-joi-to-json-schema@^3.3.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/joi-to-json-schema/-/joi-to-json-schema-3.4.0.tgz#cb27be848ae4c69330bd0a66d460aa51538bfd25"
+joi-to-json-schema@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/joi-to-json-schema/-/joi-to-json-schema-4.0.0.tgz#2b5e2a6352d78b381d832e37568be88a842b32a4"
+  integrity sha512-3dlbsiSZED0COSe3FFoX3yxp9QeLRZgwAI/tjpmuxBOe1xH3C2Gy7cQRa0A/cGifwe02gYOPVXL3pu5t+ZL4Ow==
 
 joi@^14.3.0:
   version "14.3.1"
